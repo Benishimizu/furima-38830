@@ -10,17 +10,22 @@
 #   https://dev.mysql.com/doc/refman/5.7/en/password-hashing.html
 #
 default: &default
-  adapter: mysql2
+  # adapter: mysql2
   # encoding: utf8mb4
   encoding: utf8
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: root
-  password:
-  socket: /tmp/mysql.sock
+  # username: root
+  # password:
+  # socket: /tmp/mysql.sock
 
 development:
   <<: *default
   database: furima_38830_development
+  adapter: mysql2
+  username: root
+  password:
+  host: localhost
+  
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -28,7 +33,11 @@ development:
 test:
   <<: *default
   database: furima_38830_test
-
+  adapter: mysql2
+  username: root
+  password:
+  host: localhost
+ 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
 # ever seen by anyone, they now have access to your database.
@@ -53,3 +62,32 @@ production:
   database: furima_38830_production
   username: furima_38830
   password: <%= ENV['FURIMA_38830_DATABASE_PASSWORD'] %>
+  adapter: postgresql
+  url: <%= ENV['DATABASE_URL'] %>
+
+
+  # -Memo--
+  # default: &default
+  #   encoding: utf8
+  #   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+  # development:
+  #   <<: *default
+  #   adapter: mysql2
+  #   username: root
+  #   password:
+  #   host: localhost
+  #   database: ajax_app_development
+
+  # test:
+  #   <<: *default
+  #   adapter: mysql2
+  #   username: root
+  #   password:
+  #   host: localhost
+  #   database: ajax_app_test
+
+  # production:
+  #   <<: *default
+  #   adapter: postgresql
+  #   url: <%= ENV['DATABASE_URL'] %>
