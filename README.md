@@ -53,7 +53,7 @@
 
 - belongs_to :products
 
-## sender_info テーブル
+## sender テーブル
 
 | Column             | Type       | Options                        |
 | ------------------ | ---------- | ------------------------------ |
