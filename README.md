@@ -35,24 +35,11 @@
 ### Association
 
 - belongs_to :user
-- has_many :comments
 - has_one:po
 
 
 
-## comments テーブル
 
-| Column    | Type       | Options                        |
-| --------- | ---------- | ------------------------------ |
-| content   | text       | null: false                    |
-| products  | references | null: false, foreign_key: true |
-| user      | references | null: false, foreign_key: true |
-
-
-### Association
-
-- belongs_to :user
-- belongs_to :products
 
 
 ## po テーブル
