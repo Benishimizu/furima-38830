@@ -10,15 +10,21 @@
 | email              | string | null: false,  unique: true |
 | encrypted_password | string | null: false                |
 | nick_name          | string | null: false                |
-| iv_f_name          | text   | null: false                |
-| iv_l_name          | text   | null: false                |
-| iv_f_name_kana     | text   | null: false                |
-| iv_l_name_kana     | text   | null: false                |
-| birthday           | text   | null: false                |
+| iv_f_name          | string | null: false                |
+| iv_l_name          | string | null: false                |
+| iv_f_name_kana     | string | null: false                |
+| iv_l_name_kana     | string | null: false                |
+| birthday           | date   | null: false                |
 
 ### Association
 
 - has_many :products
+- has_many :orders
+
+<!-- 商品テーブルに必要なカラムが不足しているようです。
+見本アプリを確認し、カラムを追記しましょう。 -->
+
+
 
 
 
@@ -26,43 +32,52 @@
 
 | Column             | Type       | Options                        |
 | ------------------ | ---------- | ------------------------------ |
-| title              | string     | null: false                    |
-| catch_copy         | text       | null: false                    |
-| concept            | text       | null: false                    |
+| image              | string     | null: false                    |
+| products_name      | string     | null: false                    |
+| description        | text       | null: false                    |
+| product_category   | string     | null: false                    |
+| product_description| text       | null: false                    |
+| shipping_area      | string     | null: false                    |
+| shipping_term      | string     | null: false                    |
+| price              | string     | null: false                    |
 | user               | references | null: false, foreign_key: true |
+
+
+
 
 
 ### Association
 
-- belongs_to :user
-- has_one:po
+- belongs_to :users
+- has_one:orders
 
 
 
 
 
 
-## po テーブル
+## orders テーブル
 
 | Column    | Type       | Options                        |
 | --------- | ---------- | ------------------------------ |
 | products  | references | null: false, foreign_key: true |
-
+| user      | references | null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to :products
+- belongs_to :users
 
-## sender テーブル
+## senders テーブル
 
 | Column             | Type       | Options                        |
 | ------------------ | ---------- | ------------------------------ |
-| postalcode         | text       | null: false                    |
+| postalcode         | string     | null: false                    |
 | prefecture         | text       | null: false                    |
-| city               | text       | null: false                    |
-| detailed_address   | text       | null: false                    |
-| building           | text       | null: false                    |
-| tel               | text       | null: false                     |
+| city               | string     | null: false                    |
+| detailed_address   | string     | null: false                    |
+| building           | string     |                                |
+| tel                | string     | null: false                    |
 | products           | references | null: false, foreign_key: true |
 
 
