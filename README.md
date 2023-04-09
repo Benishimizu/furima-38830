@@ -32,14 +32,13 @@
 
 | Column             | Type       | Options                        |
 | ------------------ | ---------- | ------------------------------ |
-| image              | string     | null: false                    |
-| products_name      | string     | null: false                    |
+| product_name       | string     | null: false                    |
 | description        | text       | null: false                    |
 | product_category   | string     | null: false                    |
 | product_description| text       | null: false                    |
-| shipping_area      | string     | null: false                    |
+| prefecture         | string     | null: false                    |
 | shipping_term      | string     | null: false                    |
-| price              | string     | null: false                    |
+| price              | integer     | null: false                    |
 | user               | references | null: false, foreign_key: true |
 
 
@@ -48,8 +47,8 @@
 
 ### Association
 
-- belongs_to :users
-- has_one:orders
+- belongs_to :user
+- has_one:order
 
 
 
@@ -60,13 +59,13 @@
 
 | Column    | Type       | Options                        |
 | --------- | ---------- | ------------------------------ |
-| products  | references | null: false, foreign_key: true |
+| product   | references | null: false, foreign_key: true |
 | user      | references | null: false, foreign_key: true |
 
 ### Association
 
-- belongs_to :products
-- belongs_to :users
+- belongs_to :product
+- belongs_to :user
 
 ## senders テーブル
 
@@ -78,9 +77,9 @@
 | detailed_address   | string     | null: false                    |
 | building           | string     |                                |
 | tel                | string     | null: false                    |
-| products           | references | null: false, foreign_key: true |
+| product           | references | null: false, foreign_key: true |
 
 
 ### Association
 
-- belongs_to :products
+- belongs_to :product
