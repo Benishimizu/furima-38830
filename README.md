@@ -30,16 +30,17 @@
 
 ## products テーブル
 
-| Column             | Type       | Options                        |
-| ------------------ | ---------- | ------------------------------ |
-| product_name       | string     | null: false                    |
-| description        | text       | null: false                    |
-| product_category   | string     | null: false                    |
-| product_description| text       | null: false                    |
-| prefecture         | string     | null: false                    |
-| shipping_term      | string     | null: false                    |
-| price              | integer     | null: false                    |
-| user               | references | null: false, foreign_key: true |
+| Column                | Type       | Options                        |
+| --------------------  | ---------- | ------------------------------ |
+| product_name          | string     | null: false                    |
+| description           | text       | null: false                    |
+| product_category_id   | string     | null: false                    |
+| product_description_id| text       | null: false                    |
+| shipping_fee_id       | string     | null: false                    |
+| prefecture_id         | string     | null: false                    |
+| shipping_term_id      | string     | null: false                    |
+| price                 | integer    | null: false                    |
+| user                  | references | null: false, foreign_key: true |
 
 
 
