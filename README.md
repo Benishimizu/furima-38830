@@ -21,8 +21,6 @@
 - has_many :products
 - has_many :orders
 
-<!-- 商品テーブルに必要なカラムが不足しているようです。
-見本アプリを確認し、カラムを追記しましょう。 -->
 
 
 
@@ -73,7 +71,7 @@
 | Column             | Type       | Options                        |
 | ------------------ | ---------- | ------------------------------ |
 | postalcode         | string     | null: false                    |
-| prefecture_id      | text       | null: false                    |
+| prefecture_id      | string     | null: false                    |
 | city               | string     | null: false                    |
 | detailed_address   | string     | null: false                    |
 | building           | string     |                                |
