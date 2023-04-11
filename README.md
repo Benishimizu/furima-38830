@@ -60,11 +60,13 @@
 | --------- | ---------- | ------------------------------ |
 | product   | references | null: false, foreign_key: true |
 | user      | references | null: false, foreign_key: true |
-
+| sender    | references | null: false, foreign_key: true |
+| order     | references | null: false, foreign_key: true |
 ### Association
 
 - belongs_to :product
 - belongs_to :user
+- has_one:order
 
 ## senders テーブル
 
@@ -76,9 +78,10 @@
 | detailed_address   | string     | null: false                    |
 | building           | string     |                                |
 | tel                | string     | null: false                    |
-| product           | references | null: false, foreign_key: true |
+| order              | references | null: false, foreign_key: true |
 
 
 ### Association
 
-- belongs_to :product
+<!-- - belongs_to :product -->
+- belongs_to :order
