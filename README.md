@@ -60,13 +60,11 @@
 | --------- | ---------- | ------------------------------ |
 | product   | references | null: false, foreign_key: true |
 | user      | references | null: false, foreign_key: true |
-| sender    | references | null: false, foreign_key: true |
-| order     | references | null: false, foreign_key: true |
 ### Association
 
 - belongs_to :product
 - belongs_to :user
-- has_one:order
+- has_one:sender
 
 ## senders テーブル
 
