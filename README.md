@@ -18,7 +18,7 @@
 
 ### Association
 
-- has_many :products
+- has_many :items
 - has_many :orders
 
 
@@ -26,14 +26,14 @@
 
 
 
-## products テーブル
+## items テーブル
 
 | Column                | Type       | Options                        |
 | --------------------  | ---------- | ------------------------------ |
-| product_name          | string     | null: false                    |
+| item_name          | string     | null: false                    |
 | description           | text       | null: false                    |
-| product_category_id   | integer    | null: false                    |
-| product_description_id| integer    | null: false                    |
+| item_category_id   | integer    | null: false                    |
+| item_description_id| integer    | null: false                    |
 | shipping_fee_id       | integer    | null: false                    |
 | prefecture_id         | integer    | null: false                    |
 | shipping_term_id      | integer    | null: false                    |
@@ -58,11 +58,11 @@
 
 | Column    | Type       | Options                        |
 | --------- | ---------- | ------------------------------ |
-| product   | references | null: false, foreign_key: true |
+| item   | references | null: false, foreign_key: true |
 | user      | references | null: false, foreign_key: true |
 ### Association
 
-- belongs_to :product
+- belongs_to :item
 - belongs_to :user
 - has_one:sender
 
