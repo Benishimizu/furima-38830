@@ -21,3 +21,9 @@ class ApplicationController < ActionController::Base
 #   # privateは１番上に書いたらその下からの行はPRIVATEのものと認識をするので書かなくても大丈夫
 
 end
+
+    # private
+    # def configure_permitted_parameters  # メソッド名は慣習
+    #   # deviseのUserモデルにパラメーターを許可
+    #   devise_parameter_sanitizer.permit(:deviseの処理名, keys: [:許可するキー])
+    # end
