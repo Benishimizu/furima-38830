@@ -16,14 +16,14 @@ class ApplicationController < ActionController::Base
 
   # private
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname, :iv_f_name, :iv_l_name, :iv_f_name_kana, :iv_l_name_kana])
+
+
+
+
+
   end
-#   # privateは１番上に書いたらその下からの行はPRIVATEのものと認識をするので書かなくても大丈夫
 
 end
 
-    # private
-    # def configure_permitted_parameters  # メソッド名は慣習
-    #   # deviseのUserモデルにパラメーターを許可
-    #   devise_parameter_sanitizer.permit(:deviseの処理名, keys: [:許可するキー])
-    # end
+
