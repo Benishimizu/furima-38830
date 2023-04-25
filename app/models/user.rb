@@ -11,7 +11,7 @@ class User < ApplicationRecord
             validates :iv_f_name
             validates :iv_l_name
           end
-          with_options presence: true, format: { with: /\A[ァ-ヶ]+\z/, message: '全角文字を使用してください' } do
+          with_options presence: true, format: { with: /\A[ァ-ヶー]+\z/, message: '全角文字を使用してください' } do
             validates :iv_f_name_kana
             validates :iv_l_name_kana
           end
