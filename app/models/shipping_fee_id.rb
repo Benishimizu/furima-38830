@@ -1,0 +1,2 @@
+class ShippingFeeId < ApplicationRecord
+end
