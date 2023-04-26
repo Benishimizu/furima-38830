@@ -1,0 +1,2 @@
+class ShippingTermId < ApplicationRecord
+end
