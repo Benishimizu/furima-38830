@@ -1,2 +1,0 @@
-class ItemCategoryId < ApplicationRecord
-end

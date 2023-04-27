@@ -1,2 +1,0 @@
-class PrefectureId < ApplicationRecord
-end
