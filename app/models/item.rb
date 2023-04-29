@@ -9,13 +9,14 @@ class Item < ApplicationRecord
   belongs_to :prefecture
   belongs_to :shipping_term
 
-    #空の投稿を保存できないようにする
     validates :title, :text, presence: true
 
-    #ジャンルの選択が「---」の時は保存できないようにする
-    validates :genre_id, numericality: { other_than: 1 } 
+    validates :item_category_id, numericality: { other_than: 1 } 
+    validates :item_description_id, numericality: { other_than: 1 } 
+    validates :shipping_fee_id, numericality: { other_than: 1 } 
+    validates :prefecture_id, numericality: { other_than: 1 } 
+    validates :shipping_term_id, numericality: { other_than: 1 } 
 
 
-    
 
 end
