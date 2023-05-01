@@ -75,28 +75,22 @@ RSpec.describe Item, type: :model do
       it 'priceは全角数値では出品できない' do
         @item.price = '１１１１'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price 半角文字を使用してください")
+        expect(@item.errors.full_messages).to include("Price Half-width number")
       end
 
-      it '価格が￥299以下では出品できない' do
-        @item.price <299
+      it 'priceが￥299以下では出品できない' do
+        @item.price =299
         @item.valid?
-        expect(@item.errors.full_messages).to include("Item category can't be blank", "Item description can't be blank", "Shipping fee can't be blank", "Prefecture can't be blank", "Shipping term can't be blank")
+        expect(@item.errors.full_messages).to include("Price Out of setting range")
       end
-      it "価格が￥10,000,000以上では出品できない" do
-        @item.price>10000000
+      it "priceが￥10,000,000以上では出品できない" do
+        @item.price=10000000
         @item.valid?
-        expect(@item.errors.full_messages).to include("Item category can't be blank", "Item description can't be blank", "Shipping fee can't be blank", "Prefecture can't be blank", "Shipping term can't be blank")
+        expect(@item.errors.full_messages).to include("Price Out of setting range")
       end
 
 
     end
   end
 end
-
-
-#  ACTIVEHASHの時のvalidation 1,0に気をつける
-
-#  画像；CHAT APPwosannsyou
-
 
