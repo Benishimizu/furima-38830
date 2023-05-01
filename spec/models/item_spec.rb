@@ -6,7 +6,7 @@ RSpec.describe Item, type: :model do
 
 
 
- ACTIVEHASHの時のvalidation 1,0に気をつける
+#  ACTIVEHASHの時のvalidation 1,0に気をつける
 
- 画像；CHAT APPwosannsyou
+#  画像；CHAT APPwosannsyou
 end
