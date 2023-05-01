@@ -6,11 +6,11 @@ FactoryBot.define do
         item_name          {"名前"}
         description    {"説明"}
         price           {2000}
-        item_category_id  {1}
-        item_description_id         {1}
-        prefecture_id      {1}
-        shipping_fee_id         {1}
-        shipping_term_id        {1}
+        item_category_id  {2}
+        item_description_id         {2}
+        prefecture_id      {2}
+        shipping_fee_id         {2}
+        shipping_term_id        {2}
 
         association :user
     

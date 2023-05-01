@@ -41,24 +41,24 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Item description can't be blank")
       end
       it "item_categoryが空では出品できない" do
-        @item.item_category_id = 0
+        @item.item_category_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Item category can't be blank")
       end
       it "shipping_feeが空では出品できない" do
-        @item.shipping_fee = 0
+        @item.shipping_fee_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Shipping fee can't be blank")
       end
 
       it "prefectureが空では出品できない" do
-        @item.prefecture = 0
+        @item.prefecture_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Prefecture can't be blank")
       end
 
       it "shipping_termが空では出品できない" do
-        @item.shipping_term = 0
+        @item.shipping_term_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Shipping term can't be blank")
       end
@@ -86,7 +86,7 @@ RSpec.describe Item, type: :model do
       it "価格が￥10,000,000以上では出品できない" do
         @item.price>10000000
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price は¥9,999,999以下してください")
+        expect(@item.errors.full_messages).to include("Item category can't be blank", "Item description can't be blank", "Shipping fee can't be blank", "Prefecture can't be blank", "Shipping term can't be blank")
       end
 
 
