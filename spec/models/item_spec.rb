@@ -11,77 +11,82 @@ RSpec.describe Item, type: :model do
   describe '商品出品登録' do
     context '商品出品登録がうまくいくとき' do
 
-      it "登録できる" do
+      it "出品できる" do
         expect(@item).to be_valid
       end
 
     end
 
-    context '商品登録がうまくいかないとき' do
-      it "商品画像が空だと登録できない" do
-        # @user.nickname = ''
-        # @user.valid?
-        # expect(@user.errors.full_messages).to include("Nickname can't be blank")
+    context '商品出品がうまくいかないとき' do
+      it "imageが空だと出品できない" do
+        @item.image = nil
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Image can't be blank")
       end
 
-      it "商品名が空では登録できない" do
-        # @user.email = ''
-        # @user.valid?
-        # expect(@user.errors.full_messages).to include("Email can't be blank")
+      it "item_nameが空では出品できない" do
+        @item.name = nil
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Item name can't be blank")
       end
 
-      it "商品の説明が空では登録できない" do
-        # @user.password = ''
-        # @user.valid?
-        # expect(@user.errors.full_messages).to include("Password can't be blank")
+      it "descriptionが空では出品できない" do
+        @item.description = nil
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Description can't be blank")
       end
-      it "カテゴリーの情報が空では登録できない" do
-        # @user.birthday = ''
-        # @user.valid?
-        # expect(@user.errors.full_messages).to include("Birthday can't be blank")
+      it "item_descriptionが空では出品できない" do
+        @item.item_description = nil
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Item description can't be blank")
       end
-      it "配送料の負担の情報が空では登録できない" do
-        # @user.iv_f_name = ''
-        # @user.valid?
-        # expect(@user.errors.full_messages).to include("Iv f name can't be blank")
+      it "item_categoryが空では出品できない" do
+        @item.item_category_id = 0
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Item category can't be blank")
       end
-
-      it "発送元の地域の情報が空では登録できない" do
-        # @user.iv_l_name = ''
-        # @user.valid?
-        # expect(@user.errors.full_messages).to include("Iv l name can't be blank")
-      end
-
-      it "発送までの日数の情報が空では登録できない" do
-        # @user.iv_f_name_kana = ''
-        # @user.valid?
-        # expect(@user.errors.full_messages).to include("Iv f name kana can't be blank")
+      it "shipping_feeが空では出品できない" do
+        @item.shipping_fee = 0
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Shipping fee can't be blank")
       end
 
+      it "prefectureが空では出品できない" do
+        @item.prefecture = 0
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Prefecture can't be blank")
+      end
 
-      it "価格の情報が空では登録できない" do
-        # @user.iv_f_name_kana = ''
-        # @user.valid?
-        # expect(@user.errors.full_messages).to include("Iv f name kana can't be blank")
+      it "shipping_termが空では出品できない" do
+        @item.shipping_term = 0
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Shipping term can't be blank")
       end
 
 
-
-      it '価格は全角数値では登録できない' do
-        @user.iv_l_name = '１１１１'
-        @user.valid?
-        expect(@user.errors.full_messages).to include("Iv l name 全角文字を使用してください")
+      it "priceが空では出品できない" do
+        @item.price = nil
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Price can't be blank")
       end
 
-      it '価格が￥299以下では登録できない' do
-        @user.iv_f_name = 'aaaa'
-        @user.valid?
-        expect(@user.errors.full_messages).to include("Iv f name 全角文字を使用してください")
+
+
+      it 'priceは全角数値では出品できない' do
+        @item.price = '１１１１'
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Price 半角文字を使用してください")
       end
-      it "価格が￥10,000,000以上では登録できない" do
-        @user.iv_l_name_kana = ''
-        @user.valid?
-        expect(@user.errors.full_messages).to include("Iv l name kana can't be blank")
+
+      it '価格が￥299以下では出品できない' do
+        @item.price <299
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Price は¥300以上してください")
+      end
+      it "価格が￥10,000,000以上では出品できない" do
+        @item.price>10000000
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Price は¥9,999,999以下してください")
       end
 
 
@@ -93,5 +98,5 @@ end
 #  ACTIVEHASHの時のvalidation 1,0に気をつける
 
 #  画像；CHAT APPwosannsyou
-end
+
 

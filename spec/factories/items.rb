@@ -5,7 +5,6 @@ FactoryBot.define do
         image         {Faker::Lorem.sentence}
         item_name          {"名前"}
         description    {"説明"}
-
         price           {2000}
         item_category_id  {1}
         item_description_id         {1}
