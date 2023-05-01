@@ -11,6 +11,7 @@ FactoryBot.define do
         prefecture_id      {1}
         shipping_fee_id         {1}
         shipping_term_id        {1}
+
         association :user
     
 
