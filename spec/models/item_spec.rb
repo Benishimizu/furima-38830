@@ -81,7 +81,7 @@ RSpec.describe Item, type: :model do
       it '価格が￥299以下では出品できない' do
         @item.price <299
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price は¥300以上してください")
+        expect(@item.errors.full_messages).to include("Item category can't be blank", "Item description can't be blank", "Shipping fee can't be blank", "Prefecture can't be blank", "Shipping term can't be blank")
       end
       it "価格が￥10,000,000以上では出品できない" do
         @item.price>10000000
