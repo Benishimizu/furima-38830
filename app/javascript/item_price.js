@@ -4,16 +4,21 @@ window.addEventListener('load', () => {
   const priceInput = document.getElementById("item-price");
   priceInput.addEventListener("input", () => {
     const inputValue = priceInput.value;
-    console.log(inputValue);
+    // console.log(inputValue);
+
+    const addTaxDom = document.getElementById("add-tax-price");
+    addTaxDom.innerHTML = Math.floor(inputValue*0.1);
+    // const addTax = addTaxDom.value;
+    // const addTaxValue = addTax.value;
+  
+  
+    const profitDom = document.getElementById("profit");
+    profitDom.innerHTML = Math.floor(inputValue - (Math.floor(inputValue*0.1)));
+    // console.log(profitDom);
+  
 
   })
-  const addTaxDom = document.getElementById("販売手数料を表示する場所のid");
-  addTaxDom.innerHTML = "入力した金額をもとに販売手数料を計算する処理"
-  // const priceContent = document.getElementById("add-tax-price");
-  // console.log(priceContent);
 
-  // const priceContents = document.getElementById("profit");
-  // console.log(priceContent);
 
 
 
