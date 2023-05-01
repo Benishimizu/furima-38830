@@ -20,6 +20,7 @@ class Item < ApplicationRecord
     validates :item_name, presence: true
     validates :description, presence: true
     validates :price, presence: true
+    validates :image, presence: true
 
     validates :price, numericality: { with: /\A[0-9]+\z/, message: 'Half-width number' }
     validates :price,
