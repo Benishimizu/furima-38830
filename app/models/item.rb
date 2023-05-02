@@ -23,8 +23,6 @@ class Item < ApplicationRecord
     validates :price, presence: true
     validates :image, presence: true
 
-
-
     validates :price, numericality: {only_integer: true, message: 'Half-width number'}
 
     validates :price,
