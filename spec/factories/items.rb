@@ -2,7 +2,6 @@ FactoryBot.define do
   factory :item do
 
 
-        image         {Faker::Lorem.sentence}
         item_name          {"名前"}
         description    {"説明"}
         price           {2000}
