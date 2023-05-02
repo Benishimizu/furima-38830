@@ -2,8 +2,9 @@ class ApplicationController < ActionController::Base
 
   before_action :basic_auth
 
-  # before_action :authenticate_user!　不要
+
   before_action :configure_permitted_parameters, if: :devise_controller?
+ 
 
 
   private
