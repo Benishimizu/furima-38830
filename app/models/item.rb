@@ -23,9 +23,6 @@ class Item < ApplicationRecord
     validates :price, presence: true
     validates :image, presence: true
 
-    validates :price, numericality: { with: /\A[0-9]+\z/, message: 'Half-width number' }
-    with: /\A[0-9]+\z/
-    integerがたでは反映されない→やりたいことが叶わない
 
 
     validates :price, numericality: {only_integer: true, message: 'Half-width number'}
