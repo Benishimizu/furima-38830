@@ -12,11 +12,13 @@
 
 <body>
 
+      <%#  ログインしているときは以下を表示するようにしましょう %>
         <% if user_signed_in? %>
           <div class="user_nav grid-6">
             
-            <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+            <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: : %>
           </div>
+        <%# ログインしていないときは以下を表示するようにしましょう %=> %>
         <% else %>
           <div class="grid-6">
             <%= link_to "ログイン", new_user_session_path, class: "post" %>
