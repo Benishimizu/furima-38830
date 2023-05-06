@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :show]
+  before_action :authenticate_user!, only: [:new, :create]
   before_action :set_item, only: [:show]
 
 
@@ -24,6 +24,7 @@ class ItemsController < ApplicationController
   end
 
   def show
+
   end
 
   private
