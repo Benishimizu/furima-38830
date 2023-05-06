@@ -31,16 +31,11 @@ class ItemsController < ApplicationController
   end
 
   def update
-    # @item.update(item_params) //needed? later conf.
-
     if @item.save
       redirect_to item_path
     else
       render :edit
     end
-
-    
-
   end
 
   def destroy
