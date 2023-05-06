@@ -24,8 +24,16 @@
         </div>
 
         <%# ログインしているユーザーと出品しているユーザーが、同一人物の場合と同一人物ではない場合で、処理を分けましょう %>
-    <% if user_signed_in? @item.record.nil?%>
+    <% if user_signed_in? && @item.record.nil?%>
+    <% if 'ユーザーがログインしている 且つ 商品が出品中である' %>:
+且つ 商品が出品中である'は購入機能の時に実装になるので、現段階で作業してしまうとエラーになるので
+    <% if user_signed_in? && @item.record.nil?%>
+ではなく
+    <% if user_signed_in?%>
+と一旦コーディングする
+
        <% if current_user.id == @item.user_id %>
+
 
 
         <%= link_to "商品の編集", "#", method: :get, class: "item-red-btn" %>
