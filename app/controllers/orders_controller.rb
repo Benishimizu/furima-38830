@@ -9,16 +9,16 @@ class OrdersController < ApplicationController
 
 
 def index
-    @sender == OrderSender.new
+    @order == OrderSender.new
   end
 
   def new
   end
 
   def create
-    @donation_address = OrderSender.new(donation_params)
-    if @donation_address.valid?
-      @donation_address.save
+    @order = OrderSender.new(sender_params)
+    if @order.valid?
+      @order.save
       redirect_to root_path
     else
       render :new
@@ -27,8 +27,8 @@ def index
 
   private
 
-  def donation_params
-    params.require(:donation_address).permit(:postal_code, :prefecture, :city, :house_number, :building_name, :price).merge(user_id: current_user.id)
+  def sender_params
+    params.require(:donation_address).permit(:postal_code, :prefecture_id, :city, :detailed_address, :building, :tel).merge(user_id: current_user.id)
   end
 
 
