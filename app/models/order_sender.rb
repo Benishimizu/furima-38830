@@ -9,8 +9,7 @@ class OrderSender
     validates :item
     validates :city
   end
- 
-  validates :detailed_address
+    # validates :detailed_address
 
 
   def save
