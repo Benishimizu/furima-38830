@@ -28,7 +28,7 @@ def index
   private
 
   def sender_params
-    params.require(:donation_address).permit(:postal_code, :prefecture_id, :city, :detailed_address, :building, :tel).merge(user_id: current_user.id)
+    params.require(:sender_params).permit(:postal_code, :prefecture_id, :city, :detailed_address, :building, :tel).merge(user_id: current_user.id)
   end
 
 
