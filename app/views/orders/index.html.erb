@@ -30,14 +30,6 @@
       </p>
     </div>
     <%# /支払額の表示 %>
-      <%# <%= form_with model: @orders, url: new_item_order_path, local: true do |f| %.> 
-        urlオプションに指定のパスを記述する（rails routesコマンドを用いて、購入の記録をするためのアクションに対するパスを指定します）
-        new_item_order
-
-        modelオプションにインスタンス変数を定義する（1つ前の手順で設定したFormオブジェクトのインスタンスを受け取れるようにします）
-
-      %>
-
 
     <%= form_with model: @orders, url: item_orders_path, id: 'charge-form', class: 'transaction-form-wrap',local: true do |f| %>
     <%# カード情報の入力 %>
@@ -90,7 +82,7 @@
           <label class="form-text">郵便番号</label>
           <span class="indispensable">必須</span>
         </div>
-        <%= f.text_field :hoge, class:"input-default", id:"postal-code", placeholder:"例）123-4567", maxlength:"8" %>
+        <%= f.text_field :postal_code, class:"input-default", id:"postal-code", placeholder:"例）123-4567", maxlength:"8" %>
       </div>
       <div class="form-group">
         <div class='form-text-wrap'>

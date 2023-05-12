@@ -12,8 +12,7 @@ def index
     @order == OrderSender.new
   end
 
-  def new
-  end
+
 
   def create
     @order = OrderSender.new(sender_params)
