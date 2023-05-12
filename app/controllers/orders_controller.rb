@@ -9,7 +9,7 @@ class OrdersController < ApplicationController
 
 
 def index
-    @order == OrderSender.new
+    @orders == OrderSender.new
   end
 
 
@@ -28,7 +28,7 @@ def index
   private
 
   def sender_params
-    params.require(@order).permit(:postal_code, :prefecture_id, :city, :detailed_address, :building, :tel).merge(user_id: current_user.id)
+    params.require(:order).permit(:postal_code, :prefecture_id, :city, :detailed_address, :building, :tel).merge(user_id: current_user.id)
   end
 
 
