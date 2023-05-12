@@ -10,11 +10,15 @@ class OrdersController < ApplicationController
 
 def index
     @orders == OrderSender.new
+      # Formオブジェクトのインスタンスを作成して、インスタンス変数に代入する
   end
 
 
 
   def create
+      # binding.pryは処理に不要なので削除する
+      # 値をDBへ保存する実装
+
     binding.pry
     @order = OrderSender.new(sender_params)
     if @order.valid?
