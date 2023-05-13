@@ -22,8 +22,8 @@ def index
 
     binding.pry
     @order_sender = OrderSender.new(sender_params)
-    if @order_id.valid?
-      @order_id.save
+    if @order_sender.valid?
+      @order_sender.save
       redirect_to root_path
     else
       render :new
