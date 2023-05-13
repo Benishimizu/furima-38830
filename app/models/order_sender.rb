@@ -1,6 +1,7 @@
 class OrderSender
   include ActiveModel::Model
-  attr_accessor :postal_code, :prefecture_id, :city, :detailed_address, :building, :tel, :item, :user
+  attr_accessor :postal_code, :prefecture_id, :city, :detailed_address, :building, :tel, :item_id, :user_id
+  # 上記の文でORDERSENDERで取り扱えるカラム（変数）を示している
 
   with_options presence: true do
     validates :user
