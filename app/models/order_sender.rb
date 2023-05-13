@@ -13,7 +13,7 @@ class OrderSender
 
   def save
     order = Order.create(item: item, user: user)
-    Sender.create(postal_code: postal_code, prefecture_id:prefecture_id, city:city, detailed_address:detailed_address, building:building, tel:tel,)
+    Sender.create(postal_code: postal_code, prefecture_id:prefecture_id, city:city, detailed_address:detailed_address, building:building, tel:tel)
   
   end
 

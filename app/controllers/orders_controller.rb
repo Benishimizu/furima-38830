@@ -9,10 +9,11 @@ class OrdersController < ApplicationController
 
 
 def index
-    @orders == OrderSender.new
+    @order_sender = OrderSender.new
       # Formオブジェクトのインスタンスを作成して、インスタンス変数に代入する
   end
-
+# indexがnewアクションを兼ねているから create's model とindex's model & form_with's model  should be same
+# Normally new, create and form's model option should be same
 
 
   def create
@@ -20,7 +21,7 @@ def index
       # 値をDBへ保存する実装
 
     binding.pry
-    @order = OrderSender.new(sender_params)
+    @order_sender = OrderSender.new(sender_params)
     if @order.valid?
       @order.save
       redirect_to root_path
@@ -32,7 +33,7 @@ def index
   private
 
   def sender_params
-    params.require(:order_sender).permit(:postal_code, :prefecture_id, :city, :detailed_address, :building, :tel).merge(user_id: current_user.id, item_id: current_item.id)
+    params.require(:order_sender).permit(:postal_code, :prefecture_id, :city, :detailed_address, :building, :tel).merge(user_id: current_user.id, item_id: params[:item_id])
 # requireに書きたいのはformオブジェクトの情報（２つの情報をまとめたいから）
     # permitはフォームから送られてくる内容を書く→今回は住所情報
 # mergeで書く内容は外部情報を送りたい時に書く→今回は購入情報がorderの情報になるからordersテーブルに保存したい外部キーつまり、users とitemになる
