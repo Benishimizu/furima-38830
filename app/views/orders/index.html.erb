@@ -32,23 +32,18 @@
     <%# /支払額の表示 %>
 
     <%= form_with model:@order_sender, url:item_orders_path, id: 'charge-form', class: 'transaction-form-wrap',local: true do |f| %>
-     <%= render 'error_messages', model: @order_sender %>
+     <%# <%= render 'error_messages', model: @order_sender %.> %>
     <%# カード情報の入力 %>
     <div class='credit-card-form'>
       <h1 class='info-input-haedline'>
         クレジットカード情報入力
-          <div class='form-wrap'>
-    <p>カード番号</p>
-    <div id="number-form" class="input-default"></div>
-  </div>
-  <div class='form-wrap'>
-    <p>期限</p>
-    <div id="expiry-form" class="input-default"></div>
-  </div>
-  <div class='form-wrap'>
-    <p>カード背面4桁もしくは3桁の番号</p>
-    <div id="cvc-form" class="input-default"></div>
-  </div>
+        
+
+
+
+
+
+        
       </h1>
       <div class="form-group">
         <div class='form-text-wrap'>
