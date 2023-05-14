@@ -20,7 +20,7 @@ def index
       # binding.pryは処理に不要なので削除する
       # 値をDBへ保存する実装
 
-    binding.pry
+    # binding.pry
     @order_sender = OrderSender.new(sender_params)
     if @order_sender.valid?
       @order_sender.save
