@@ -7,17 +7,17 @@
     </h1>
     <%# 購入内容の表示 %>
     <div class='buy-item-info'>
-      <%= image_tag "item-sample.png", class: 'buy-item-img' %>
+      <%= image_tag @item.image, class: 'buy-item-img' %>
       <%# Step6 %>
       <div class='buy-item-right-content'>
         <h2 class='buy-item-text'>
-          <%= "商品名" %>
+          <%= @item.item_name %>
           <%# Step 2 %>
         </h2>
         <div class='buy-item-price'>
-          <p class='item-price-text'>¥<%= '999,999,999' %></p>
+         <p class='item-price-text'>¥<%= @item.price %></p>
           <%# Step3 %>
-          <p class='item-price-sub-text'><%= '配送料負担' %></p>
+          <p class='item-price-sub-text'><%= @item.shipping_fee.name %></p>
           <%# Step4 %>
         </div>
       </div>
@@ -30,7 +30,7 @@
         支払金額
       </h1>
       <p class='item-payment-price'>
-        ¥<%= "販売価格" %>
+            ¥ <%= @item.price %>
         <%# Step5 %>
       </p>
     </div>

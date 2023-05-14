@@ -9,6 +9,7 @@ class OrdersController < ApplicationController
 
 
 def index
+    @item = Item.find(params[:item_id])
     @order_sender = OrderSender.new
       # Formオブジェクトのインスタンスを作成して、インスタンス変数に代入する
   end
