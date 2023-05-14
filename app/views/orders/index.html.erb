@@ -8,13 +8,17 @@
     <%# 購入内容の表示 %>
     <div class='buy-item-info'>
       <%= image_tag "item-sample.png", class: 'buy-item-img' %>
+      <%# Step6 %>
       <div class='buy-item-right-content'>
         <h2 class='buy-item-text'>
           <%= "商品名" %>
+          <%# Step 2 %>
         </h2>
         <div class='buy-item-price'>
           <p class='item-price-text'>¥<%= '999,999,999' %></p>
+          <%# Step3 %>
           <p class='item-price-sub-text'><%= '配送料負担' %></p>
+          <%# Step4 %>
         </div>
       </div>
     </div>
@@ -27,12 +31,13 @@
       </h1>
       <p class='item-payment-price'>
         ¥<%= "販売価格" %>
+        <%# Step5 %>
       </p>
     </div>
     <%# /支払額の表示 %>
 
     <%= form_with model:@order_sender, url:item_orders_path, id: 'charge-form', class: 'transaction-form-wrap',local: true do |f| %>
-     <%# <%= render 'error_messages', model: @order_sender %.> %>
+        <%= render 'shared/error_messages', model: f.object %>
     <%# カード情報の入力 %>
     <div class='credit-card-form'>
       <h1 class='info-input-haedline'>
@@ -50,7 +55,7 @@
           <label class="form-text">カード情報</label>
           <span class="indispensable">必須</span>
         </div>
-        <%= f.text_field :price, class:"input-default", id:"card-number", placeholder:"カード番号(半角英数字)", maxlength:"16" %>
+        <%= f.text_field :hoge, class:"input-default", id:"card-number", placeholder:"カード番号(半角英数字)", maxlength:"16" %>
         <div class='available-card'>
           <%= image_tag 'card-visa.gif', class: 'card-logo'%>
           <%= image_tag 'card-mastercard.gif', class: 'card-logo'%>
