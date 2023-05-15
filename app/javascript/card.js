@@ -1,12 +1,5 @@
-// const pay = () => {
-//   const payjp = Payjp('pk_test_c24e16fb276bf20b852e85e3')// PAY.JPテスト公開鍵
-//   const submit = document.getElementById("button");
-//   submit.addEventListener("click", (e) => {
-//     e.preventDefault();
-//     console.log("フォーム送信時にイベント発火")
-//   });
 const pay = () => {
-  const payjp = Payjp('pk_test_***********************')// PAY.JPテスト公開鍵
+  const payjp = Payjp('pk_test_c24e16fb276bf20b852e85e3')// PAY.JPテスト公開鍵
   const elements = payjp.elements();
   const numberElement = elements.create('cardNumber');
   const expiryElement = elements.create('cardExpiry');
@@ -37,4 +30,4 @@ const pay = () => {
 };
 
 window.addEventListener("load", pay);
-// Step12コメントアウトを削除
+
