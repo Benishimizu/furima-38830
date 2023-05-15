@@ -24,6 +24,10 @@ def index
     # binding.pry
     @order_sender = OrderSender.new(sender_params)
     if @order_sender.valid?
+      # Step15 コメントアウトしてPriceに気をつける
+      pay_item
+
+
       @order_sender.save
       redirect_to root_path
     else
@@ -34,10 +38,19 @@ def index
   private
 
   def sender_params
-    params.require(:order_sender).permit(:postal_code, :prefecture_id, :city, :detailed_address, :building, :tel).merge(user_id: current_user.id, item_id: params[:item_id])
+    params.require(:order_sender).permit(:postal_code, :prefecture_id, :city, :detailed_address, :building, :tel).merge(user_id: current_user.id, item_id: params[:item_id],token: params[:token])
 # requireに書きたいのはformオブジェクトの情報（２つの情報をまとめたいから）
     # permitはフォームから送られてくる内容を書く→今回は住所情報
 # mergeで書く内容は外部情報を送りたい時に書く→今回は購入情報がorderの情報になるからordersテーブルに保存したい外部キーつまり、users とitemになる
+  end
+
+  def pay_item
+    Payjp.api_key = "sk_test_***********"  # 自身のPAY.JPテスト秘密鍵を記述しましょう
+    Payjp::Charge.create(
+      amount: order_params[:price],  # 商品の値段
+      card: order_params[:token],    # カードトークン
+      currency: 'jpy'                 # 通貨の種類（日本円）
+    )
   end
 
 
