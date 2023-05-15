@@ -1,4 +1,5 @@
 const pay = () => {
+  const payjp = Payjp('pk_test_***********************')// PAY.JPテスト公開鍵
   const submit = document.getElementById("button");
   submit.addEventListener("click", (e) => {
     e.preventDefault();
