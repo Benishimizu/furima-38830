@@ -4,6 +4,7 @@ RSpec.describe OrderSender, type: :model do
   describe '配送先情報の保存' do
     before do
       item = FactoryBot.create(:item)
+      
       user = FactoryBot.create(:user)
       @order_sender = FactoryBot.build(:order_sender,item_id: item.id,user_id: user.id)
     end
