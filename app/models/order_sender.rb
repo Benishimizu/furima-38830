@@ -1,6 +1,6 @@
 class OrderSender
   include ActiveModel::Model
-  attr_accessor :postal_code, :prefecture_id, :city, :detailed_address, :building, :tel, :item_id, :user_id
+  attr_accessor :postal_code, :prefecture_id, :city, :detailed_address, :building, :tel, :item_id, :user_id, :token
   # 上記の文でORDERSENDERで取り扱えるカラム（変数）を示している
 
   with_options presence: true do
@@ -9,20 +9,23 @@ class OrderSender
     validates :prefecture_id, numericality: {other_than: 0, message: "can't be blank"}
     validates :item_id
     validates :city
+    validates :detailed_address
+    validates :tel
+    # validates :price
   end
-    # validates :detailed_address
+
     # テストコードstep7
     # OrderSEnderののバリデーションを見ながらテストコードを書くよ
     # テストに足りない情報があれば追加すればOK
 
           #   配送先情報
-          #   配送先の住所情報も購入の都度入力させること。
+          # ?  配送先の住所情報も購入の都度入力させること。
           #   郵便番号が必須であること。
           #   郵便番号は、「3桁ハイフン4桁」の半角文字列のみ保存可能なこと（良い例：123-4567　良くない例：1234567）。
           #   都道府県が必須であること。
           #   市区町村が必須であること。
           #   番地が必須であること。
-          #   建物名は任意であること。
+          # ?  建物名は任意であること。
           #   電話番号が必須であること。
           #   電話番号は、10桁以上11桁以内の半角数値のみ保存可能なこと（良い例：09012345678　良くない例：090-1234-5678）。
           #  他機能関連
@@ -31,7 +34,8 @@ class OrderSender
           #   ログイン状態の場合でも、売却済みの商品には、「商品の編集」「削除」「購入画面に進む」ボタンが表示されないこと（商品詳細機能）。
           #   ログイン状態の場合でも、自身が出品した売却済み商品の商品情報編集ページへ遷移しようとすると、トップページに遷移すること（商品情報編集機能）。
    
-
+    # STEP８上記を再度確認する
+    # Step９エラー解消
 
 
 
