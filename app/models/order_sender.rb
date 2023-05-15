@@ -10,7 +10,7 @@ class OrderSender
     validates :item_id
     validates :city
   end
-    validates :detailed_address
+    # validates :detailed_address
     # テストコードstep7
     # OrderSEnderののバリデーションを見ながらテストコードを書くよ
     # テストに足りない情報があれば追加すればOK
