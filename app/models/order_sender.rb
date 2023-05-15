@@ -10,8 +10,9 @@ class OrderSender
     validates :item_id
     validates :city
     validates :detailed_address
-    validates :tel
-    # validates :price
+    validates :tel, format:{with:/\A\d{10,11}\z/, message: "is invalid. Maxlength: 11"}
+    validates :token
+
   end
 
     # テストコードstep7
