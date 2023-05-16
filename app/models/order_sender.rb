@@ -1,7 +1,6 @@
 class OrderSender
   include ActiveModel::Model
   attr_accessor :postal_code, :prefecture_id, :city, :detailed_address, :building, :tel, :item_id, :user_id, :token
-  # 上記の文でORDERSENDERで取り扱えるカラム（変数）を示している
 
   with_options presence: true do
     validates :user_id
@@ -29,27 +28,14 @@ class OrderSender
    
     # STEP８上記を再度確認する
     # Step９エラー解消
+    # already purchased =>商品に紐づく商品の履歴が存在する＝＞ITEMに紐づくORDESテーブルに情報が入っている　つまり、ORDERSテーブルに入っているか確認すればいい
 
 
 
   def save
     order = Order.create(item_id: item_id, user_id: user_id)
-    # binding.pry
     Sender.create(postal_code: postal_code, prefecture_id:prefecture_id, city:city, detailed_address:detailed_address, building:building, tel:tel, order:order)
     #       t.references      :order, null: false, foreign_key: true
-# が足りないだからsenderに保存ができない
-# --> どうしたらいいかというと 上記のorderを利用して外部キーに値を入れたい
-
-# そのために下記の様にすることが必要である　SMALLSTEP1
-# # 寄付情報を保存し、変数donationに代入する
-# donation = Donation.create(price: price, user_id: user_id)
-# # 住所を保存する
-# # donation_idには、変数donationのidと指定する
-# Address.create(postal_code: postal_code, prefecture: prefecture, city: city, house_number: house_number, building_name: building_name, donation_id: donation.id)
-# end
-# end
-
-
   
   end
 
