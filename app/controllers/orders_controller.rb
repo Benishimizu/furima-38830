@@ -1,33 +1,19 @@
 class OrdersController < ApplicationController
 
   before_action :authenticate_user!, except: :index
-# orders#indexで購入のためのフォームを表示し、orders#createで購入の記録をテーブルに保存するようにします。
-
-# また、この購入機能は、商品情報にネストされることに気をつけましょう。パスは以下のように商品のidの後に購入についての処理が存在するようにします。
-
-
 
 
 def index
     @item = Item.find(params[:item_id])
     @order_sender = OrderSender.new
-      # Formオブジェクトのインスタンスを作成して、インスタンス変数に代入する
   end
-# indexがnewアクションを兼ねているから create's model とindex's model & form_with's model  should be same
-# Normally new, create and form's model option should be same
 
 
   def create
-      # binding.pryは処理に不要なので削除する
-      # 値をDBへ保存する実装
-
-    # binding.pry
+    @item = Item.find(params[:item_id])
     @order_sender = OrderSender.new(sender_params)
     if @order_sender.valid?
-      # Step15 コメントアウトしてPriceに気をつける
       pay_item
-
-
       @order_sender.save
       redirect_to root_path
     else
@@ -39,13 +25,10 @@ def index
 
   def sender_params
     params.require(:order_sender).permit(:postal_code, :prefecture_id, :city, :detailed_address, :building, :tel).merge(user_id: current_user.id, item_id: params[:item_id],token: params[:token])
-# requireに書きたいのはformオブジェクトの情報（２つの情報をまとめたいから）
-    # permitはフォームから送られてくる内容を書く→今回は住所情報
-# mergeで書く内容は外部情報を送りたい時に書く→今回は購入情報がorderの情報になるからordersテーブルに保存したい外部キーつまり、users とitemになる
   end
 
   def pay_item
-    Payjp.api_key = "sk_test_***********"  # 自身のPAY.JPテスト秘密鍵を記述しましょう
+    Payjp.api_key = "sk_test_08e0f8992696d402ff15a9f7"  # 自身のPAY.JPテスト秘密鍵を記述しましょう
     Payjp::Charge.create(
       amount: order_params[:price],  # 商品の値段
       card: order_params[:token],    # カードトークン
