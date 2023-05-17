@@ -35,7 +35,6 @@ class OrderSender
   def save
     order = Order.create(item_id: item_id, user_id: user_id)
     Sender.create(postal_code: postal_code, prefecture_id:prefecture_id, city:city, detailed_address:detailed_address, building:building, tel:tel, order:order)
-    #       t.references      :order, null: false, foreign_key: true
   
   end
 
