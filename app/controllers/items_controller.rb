@@ -27,9 +27,15 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    unless current_user == @item.user
+    unless current_user == @item.user && @item.order == nil
       redirect_to root_path
     end
+
+# 購入履歴
+# edit画面に飛んで欲しくないのは　ログインと出品者が別
+# もしくは商品が売れていたら
+# 後ほど上記は確認する必要あり
+
   end
 
   def update
