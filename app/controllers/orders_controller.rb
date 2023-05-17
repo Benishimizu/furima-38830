@@ -30,9 +30,9 @@ def index
   def pay_item
     Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
     Payjp::Charge.create(
-      amount: @item.price,  # 商品の値段
-      card: sender_params[:token],    # カードトークン
-      currency: 'jpy'                 # 通貨の種類（日本円）
+      amount: @item.price,  
+      card: sender_params[:token],   
+      currency: 'jpy'             
     )
   end
 
