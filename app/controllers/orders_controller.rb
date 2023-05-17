@@ -12,7 +12,7 @@ def index
   def create
     @item = Item.find(params[:item_id])
     @order_sender = OrderSender.new(sender_params)
-    if @order_sender.valid?
+    if @order_sender.valid? && @item.order == nil
       pay_item
       @order_sender.save
       redirect_to root_path
