@@ -1,24 +1,26 @@
 class OrdersController < ApplicationController
 
   before_action :authenticate_user!, except: :index
+  before_action :set_furima, only: [:index, :create]
+  before_action :prevent_url, only: [:index, :create]
 
 
-def index
-    @item = Item.find(params[:item_id])
+  def index
     @order_sender = OrderSender.new
   end
 
 
   def create
-    @item = Item.find(params[:item_id])
     @order_sender = OrderSender.new(sender_params)
-    if @order_sender.valid? && @item.order == nil
-      pay_item
-      @order_sender.save
-      redirect_to root_path
-    else
-      render :index
-    end
+
+      if @order_sender.valid?
+        pay_item
+        @order_sender.save
+        redirect_to root_path
+      else
+        render :index
+      end
+
   end
 
   private
@@ -34,6 +36,16 @@ def index
       card: sender_params[:token],   
       currency: 'jpy'             
     )
+  end
+
+  def set_furima
+    @item = Item.find(params[:item_id])
+  end
+
+  def prevent_url
+    if @item.user_id == current_user.id || @item.purchase != nil
+      redirect_to root_path
+    end
   end
 
 
