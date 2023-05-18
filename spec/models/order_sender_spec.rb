@@ -34,7 +34,7 @@ RSpec.describe OrderSender, type: :model do
       it '都道府県が必須であること。' do
         @order_sender.prefecture_id= ''
         @order_sender.valid?
-        expect(@order_sender.errors.full_messages).to include("Prefecture can't be blank", "Prefecture can't be blank")
+        expect(@order_sender.errors.full_messages).to include("Prefecture can't be blank")
       end
       it '市区町村が必須であること。' do
         @order_sender.city=''
