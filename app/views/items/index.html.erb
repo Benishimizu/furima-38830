@@ -137,19 +137,11 @@
         <div class='item-img-content'>
           <%= image_tag item.image, class: "item-img" %>
 
-          <%# 商品が売れていればsold outを表示しましょう %>
           <% if item.order.present? %>
-          <%# @itemsではなく別の変数を使う必要がある
-          上記で@items.each do |item|とあるので
-          item
-          とすることで１つ１つの商品と分けることができる
-          
-           %>
           <div class='sold-out'>
             <span>Sold Out!!</span>
           </div>
           <% end %>
-          <%# //商品が売れていればsold outを表示しましょう %>
 
         </div>
         <div class='item-info'>
