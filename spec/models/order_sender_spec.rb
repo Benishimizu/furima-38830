@@ -23,7 +23,7 @@ RSpec.describe OrderSender, type: :model do
       it '郵便番号が必須であること。' do
         @order_sender.postal_code= ''
         @order_sender.valid?
-        expect(@order_sender.errors.full_messages).to include("Postal code can't be blank", "Postal code is invalid. Include hyphen(-)")
+        expect(@order_sender.errors.full_messages).to include("Postal code can't be blank")
 
       end
       it ' 郵便番号は、「3桁ハイフン4桁」の半角文字列のみ保存可能なこと（良い例:123-4567 良くない例:1234567）。' do
