@@ -8,8 +8,6 @@ FactoryBot.define do
     detailed_address{"青山1-1-1"}
     building{"牧野ビル"}
     tel{"09012190274"}
-    item_id{1}
-    # price {"3000"}
     token {"tok_abcdefghijk00000000000000000"}
   end
 end
