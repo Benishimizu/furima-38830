@@ -32,7 +32,7 @@ RSpec.describe OrderSender, type: :model do
         expect(@order_sender.errors.full_messages).to include("Postal code is invalid. Include hyphen(-)")
       end
       it '都道府県が必須であること。' do
-        @order_sender.prefecture_id= ''
+        @order_sender.prefecture_id= '0'
         @order_sender.valid?
         expect(@order_sender.errors.full_messages).to include("Prefecture can't be blank")
       end
