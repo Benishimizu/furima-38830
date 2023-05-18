@@ -63,18 +63,24 @@ RSpec.describe OrderSender, type: :model do
         @order_sender.valid?
         expect(@order_sender.errors.full_messages).to include("Token can't be blank")
       end
+
+      it "user_idが空だと登録できない" do
+        @order_sender.user_id = nil
+        @order_sender.valid?
+        expect(@order_sender.errors.full_messages).to include("User can't be blank")
+
+      end
+      it "item_idが空だと登録できない" do
+        @order_sender.item_id = nil
+        @order_sender.valid?
+        expect(@order_sender.errors.full_messages).to include("Item can't be blank")
+      end
+
+      
+
+
     end
   end
 end
 
 
-### 試したこと
-
-# ここに問題に対して試したことを記載してください。
-# priceメソッドが定義されていないと思い
-# order_sender.rbファイルにassociation
-# をitemを記載しました。
-
-
-
-# ここにより詳細な情報を記載してください。
