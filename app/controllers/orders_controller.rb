@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-
+  before_action :authenticate_user!
   before_action :set_furima, only: [:index, :create]
   before_action :prevent_url, only: [:index, :create]
 

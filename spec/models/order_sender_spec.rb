@@ -52,11 +52,22 @@ RSpec.describe OrderSender, type: :model do
         expect(@order_sender.errors.full_messages).to include("Tel can't be blank")        
 
       end
-      it '電話番号は、10桁以上11桁以内の半角数値のみ保存可能なこと（良い例:09012345678 良くない例:090-1234-5678)' do
-        @order_sender.tel='123456789234'
+      it '電話番号は、半角数字以外が含まれている場合、登録できないこと' do
+        @order_sender.tel='123456789２s'
         @order_sender.valid?
-        expect(@order_sender.errors.full_messages).to include('Tel is invalid. Maxlength: 11')
+        expect(@order_sender.errors.full_messages).to include('Tel is invalid.')
       end
+      it '電話番号は、9桁以下では登録できないこと' do
+        @order_sender.tel='12345678'
+        @order_sender.valid?
+        expect(@order_sender.errors.full_messages).to include('Tel is invalid.')
+      end
+      it '電話番号は、12桁以上では登録できないこと' do
+        @order_sender.tel='1234567891234'
+        @order_sender.valid?
+        expect(@order_sender.errors.full_messages).to include('Tel is invalid.')
+      end
+
 
       it "tokenが空では登録できないこと" do
         @order_sender.token =''
