@@ -19,10 +19,10 @@ class Item < ApplicationRecord
     validates :shipping_term_id, numericality: { other_than: 1, message: "can't be blank" } 
   end
 
-    validates :item_name, presence: true, allow_blank: true
-    validates :description, presence: true, allow_blank: true
-    validates :price, presence: true, allow_blank: true
-    validates :image, presence: true, allow_blank: true
+    validates :item_name, presence: true 
+    validates :description, presence: true
+    validates :price, presence: true
+    validates :image, presence: true
 
     validates :price, numericality: {only_integer: true, message: 'Half-width number'}
 
