@@ -11,13 +11,13 @@ class Item < ApplicationRecord
   belongs_to :prefecture
   belongs_to :shipping_term
 
-
-    validates :item_category_id, numericality: { other_than: 1, message: "can't be blank" } , allow_blank: true
-    validates :item_description_id, numericality: { other_than: 1, message: "can't be blank" } , allow_blank: true
-    validates :shipping_fee_id, numericality: { other_than: 1, message: "can't be blank" } , allow_blank: true
-    validates :prefecture_id, numericality: { other_than: 1, message: "can't be blank" } , allow_blank: true
-    validates :shipping_term_id, numericality: { other_than: 1, message: "can't be blank" } , allow_blank: true
-
+  with_options presence: true do
+    validates :item_category_id, numericality: { other_than: 1, message: "can't be blank" } 
+    validates :item_description_id, numericality: { other_than: 1, message: "can't be blank" }
+    validates :shipping_fee_id, numericality: { other_than: 1, message: "can't be blank" }
+    validates :prefecture_id, numericality: { other_than: 1, message: "can't be blank" }
+    validates :shipping_term_id, numericality: { other_than: 1, message: "can't be blank" } 
+  end
 
     validates :item_name, presence: true, allow_blank: true
     validates :description, presence: true, allow_blank: true
