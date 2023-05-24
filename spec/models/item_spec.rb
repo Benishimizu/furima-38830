@@ -21,24 +21,24 @@ RSpec.describe Item, type: :model do
       it "imageが空だと出品できない" do
         @item.image = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("Image can't be blank")
+        expect(@item.errors.full_messages).to include("商品画像を入力してください")
       end
 
       it "item_nameが空では出品できない" do
         @item.item_name = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("Item name can't be blank")
+        expect(@item.errors.full_messages).to include("商品名を入力してください")
       end
 
       it "descriptionが空では出品できない" do
         @item.description = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("Description can't be blank")
+        expect(@item.errors.full_messages).to include("商品名説明を入力してください")
       end
       it "item_descriptionが空では出品できない" do
         @item.item_description = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("Item description can't be blank")
+        expect(@item.errors.full_messages).to include("商品カテゴリーを入力してください")
       end
       it "item_categoryが空では出品できない" do
         @item.item_category_id = 1
