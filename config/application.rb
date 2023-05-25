@@ -10,6 +10,5 @@ module Furima38830
 
     config.i18n.default_locale = :ja
 
-
   end
 end

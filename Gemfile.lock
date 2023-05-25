@@ -103,6 +103,9 @@ GEM
       romaji
     globalid (1.1.0)
       activesupport (>= 5.0)
+    gretel (4.5.0)
+      actionview (>= 5.1, < 7.1)
+      railties (>= 5.1, < 7.1)
     http-accept (1.7.0)
     http-cookie (1.0.5)
       domain_name (~> 0.5)
@@ -191,6 +194,9 @@ GEM
       nokogiri (>= 1.6)
     rails-html-sanitizer (1.5.0)
       loofah (~> 2.19, >= 2.19.1)
+    rails-i18n (7.0.7)
+      i18n (>= 0.7, < 2)
+      railties (>= 6.0.0, < 8)
     railties (6.0.6.1)
       actionpack (= 6.0.6.1)
       activesupport (= 6.0.6.1)
@@ -320,6 +326,7 @@ DEPENDENCIES
   factory_bot_rails
   faker
   gimei
+  gretel
   jbuilder (~> 2.7)
   listen (>= 3.0.5, < 3.2)
   mysql2 (>= 0.4.4)
@@ -328,6 +335,7 @@ DEPENDENCIES
   pry-rails
   puma (~> 3.11)
   rails (~> 6.0.0)
+  rails-i18n
   rspec-rails (~> 4.0.0)
   rubocop
   sass-rails (~> 5)
