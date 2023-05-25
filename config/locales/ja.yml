@@ -21,16 +21,14 @@ ja:
                   price: 商品価格
                   user: ユーザー名
 
-
+  activemodel:
+    attributes:
       order_sender:
                   user_id: ユーザー名
                   postal_code: 郵便番号
-                  prefecture_id: 都道府県
                   item_id: 商品
                   city: 市町村
                   detailed_address: 住所詳細
                   tel: 電話番号
                   token: トークン
-
-
-
+                  prefecture_id: 都道府県
