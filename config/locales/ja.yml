@@ -12,19 +12,25 @@ ja:
       item:
                   image: 商品画像
                   item_name: 商品名
-                  description: 商品名説明
-                  item_category: 商品カテゴリー
-                  item_description: 商品
-                  shipping_fee: 送料
-                  prefecture: 都道府県
-                  shipping_term: 送料負担
+                  description: 商品の説明
+                  item_category_id: 商品カテゴリー
+                  item_description_id: 商品の状態
+                  shipping_fee_id: 配送料の負担
+                  prefecture_id: 都道府県
+                  shipping_term_id: 発送までの日数
                   price: 商品価格
+                  user: ユーザー名
 
 
-      sender:
-                  postalcode: 郵便番号
-                  prefecture: 都道府県
+      order_sender:
+                  user_id: ユーザー名
+                  postal_code: 郵便番号
+                  prefecture_id: 都道府県
+                  item_id: 商品
                   city: 市町村
                   detailed_address: 住所詳細
-                  building: 建物名
                   tel: 電話番号
+                  token: トークン
+
+
+
