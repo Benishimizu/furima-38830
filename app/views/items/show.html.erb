@@ -1,7 +1,12 @@
 <%= render "shared/header" %>
 
+<%# <h1>Item#index</h1>
+<p><%= link_to "購入画面へ", item_orders_path(@item.id) %.></p> %>
+<% breadcrumb :item %>
+
 <%# 商品の概要 %>
 <div class="item-show">
+
       <div class="item-box">
         <h2 class="name">
           <%= @item.item_name %>

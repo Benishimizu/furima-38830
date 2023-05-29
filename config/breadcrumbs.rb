@@ -1,28 +1,28 @@
 crumb :root do
-  link "Home", root_path
+  link "Toppage", root_path
 end
 
-# crumb :projects do
-#   link "Projects", projects_path
-# end
+crumb :item do
+  link "商品詳細", item_path
+  parent :root
+end
 
-# crumb :project do |project|
-#   link project.name, project_path(project)
-#   parent :projects
-# end
+crumb :item_orders do
+  link "購入ページ", item_orders_path.find(params[:id])
 
-# crumb :project_issues do |project|
-#   link "Issues", project_issues_path(project)
-#   parent :project, project
-# end
+  # item_orders_path(@item.id)
+  # :@itemからidをとる
 
-# crumb :issue do |issue|
-#   link issue.title, issue_path(issue)
-#   parent :project_issues, issue.project
-# end
+  # .find(params[:id])
+  # :パラムスからidをとる
+  # MVCの流れを考えた時にビューから飛んでコントローラーで値を取ってくるから一番自然な書き方
+  # FIND:モデルがあってそのPARAMSから探す
 
-# If you want to split your breadcrumbs configuration over multiple files, you
-# can create a folder named `config/breadcrumbs` and put your configuration
-# files there. All *.rb files (e.g. `frontend.rb` or `products.rb`) in that
-# folder are loaded and reloaded automatically when you change them, just like
-# this file (`config/breadcrumbs.rb`).
+  # .find_by(id: params[:id])
+  # :.find(params[:id])と似ているがfind_byになるとID以外も検索できる
+  # つまり類似している
+
+
+
+  parent :item
+end
