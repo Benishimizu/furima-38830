@@ -1,5 +1,5 @@
 crumb :root do
-  link "Toppage", root_path
+  link "Top", root_path
 end
 
 crumb :item do
@@ -7,9 +7,10 @@ crumb :item do
   parent :root
 end
 
-crumb :item_orders do
-  link "購入ページ", item_orders_path.find(params[:id])
-
+crumb :item_orders do 
+  link "購入ページ", item_orders_path(@item.id)
+  # item_orders_path(@item.id)
+  # item_orders_path.find(params[:id])
   # item_orders_path(@item.id)
   # :@itemからidをとる
 
