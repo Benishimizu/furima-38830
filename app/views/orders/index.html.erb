@@ -1,11 +1,19 @@
 <%= render "shared/second-header"%>
 
+
 <div class='transaction-contents'>
+
+<%# <h1>Orders#index</h1>
+<p>Find me in app/views/orders/index.html.erb</p> %>
+<% breadcrumb :item_orders %>
+
   <div class='transaction-main'>
     <h1 class='transaction-title-text'>
       購入内容の確認
     </h1>
     <%# 購入内容の表示 実装メモとして残しています%>
+    
+
     <div class='buy-item-info'>
       <%= image_tag @item.image, class: 'buy-item-img' %>
       <div class='buy-item-right-content'>
